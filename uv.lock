@@ -1285,11 +1285,6 @@ dev = [
     { name = "streamlit" },
 ]
 
-[package.dev-dependencies]
-dev = [
-    { name = "surya-ocr" },
-]
-
 [package.metadata]
 requires-dist = [
     { name = "datasets", marker = "extra == 'dev'", specifier = ">=2.21.0" },
@@ -1313,7 +1308,7 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
-dev = [{ name = "surya-ocr", git = "https://github.com/village-dev/surya.git" }]
+dev = []
 
 [[package]]
 name = "markupsafe"
@@ -3197,7 +3192,7 @@ wheels = [
 [[package]]
 name = "surya-ocr"
 version = "0.6.12"
-source = { git = "https://github.com/village-dev/surya.git#9d744445d1558b76c76137313f8bb1c4adb1561f" }
+source = { git = "https://github.com/village-dev/surya.git#d99b9becc2db9e8adbccacf633f067f07dffc2ce" }
 dependencies = [
     { name = "filetype" },
     { name = "ftfy" },

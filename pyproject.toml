@@ -57,6 +57,4 @@ include = [
 surya-ocr = { git = "https://github.com/village-dev/surya.git" }
 
 [dependency-groups]
-dev = [
-    "surya-ocr",
-]
+dev = []
