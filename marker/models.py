@@ -68,7 +68,7 @@ def setup_layout_model(device=None, dtype=None) -> SuryaLayoutModel:
 def create_model_dict(device=None, dtype=None) -> dict:
     return {
         "layout_model": setup_layout_model(device, dtype),
-        "texify_model": setup_texify_model(device, dtype),
+        # "texify_model": setup_texify_model(device, dtype),
         "recognition_model": setup_recognition_model(device, dtype),
         "table_rec_model": setup_table_rec_model(device, dtype),
         "detection_model": setup_detection_model(device, dtype),

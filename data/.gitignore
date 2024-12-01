@@ -1,3 +1,5 @@
 latex
 pdfs
 references
+*.json
+*.pdf
