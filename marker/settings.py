@@ -1,4 +1,4 @@
-from typing import Optional, List, Dict, Literal
+from typing import Optional
 
 from dotenv import find_dotenv
 from pydantic import computed_field
@@ -13,6 +13,10 @@ class Settings(BaseSettings):
     OUTPUT_DIR: str = os.path.join(BASE_DIR, "conversion_results")
     FONT_DIR: str = os.path.join(BASE_DIR, "static", "fonts")
     DEBUG_DATA_FOLDER: str = os.path.join(BASE_DIR, "debug_data")
+
+    # General
+    OUTPUT_ENCODING: str = "utf-8"
+    OUTPUT_IMAGE_FORMAT: str = "JPEG"
 
     # General models
     TORCH_DEVICE: Optional[str] = None # Note: MPS device does not work for text detection, and will default to CPU

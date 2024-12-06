@@ -1,4 +1,4 @@
-import re
+from typing import Literal
 
 from bs4 import BeautifulSoup, MarkupResemblesLocatorWarning
 from pydantic import BaseModel
@@ -6,10 +6,15 @@ from pydantic import BaseModel
 from marker.renderers import BaseRenderer
 from marker.schema import BlockTypes
 from marker.schema.blocks import BlockId
+from marker.settings import settings
 
 # Ignore beautifulsoup warnings
 import warnings
 warnings.filterwarnings("ignore", category=MarkupResemblesLocatorWarning)
+
+# Suppress DecompressionBombError
+from PIL import Image
+Image.MAX_IMAGE_PIXELS = None
 
 
 class HTMLOutput(BaseModel):
@@ -21,11 +26,12 @@ class HTMLOutput(BaseModel):
 class HTMLRenderer(BaseRenderer):
     page_blocks: list = [BlockTypes.Page]
     paginate_output: bool = False
+    image_extraction_mode: Literal["lowres", "highres"] = "highres"
 
     def extract_image(self, document, image_id):
         image_block = document.get_block(image_id)
         page = document.get_page(image_block.page_id)
-        page_img = page.highres_image
+        page_img = page.lowres_image if self.image_extraction_mode == "lowres" else page.highres_image
         image_box = image_block.polygon.rescale(page.polygon.size, page_img.size)
         cropped = page_img.crop(image_box.bbox)
         return cropped
@@ -49,10 +55,13 @@ class HTMLRenderer(BaseRenderer):
             if ref_block_id.block_type in self.remove_blocks:
                 ref.replace_with('')
             elif ref_block_id.block_type in self.image_blocks:
-                image = self.extract_image(document, ref_block_id)
-                image_name = f"{ref_block_id.to_path()}.png"
-                images[image_name] = image
-                ref.replace_with(BeautifulSoup(f"<p><img src='{image_name}'></p>", 'html.parser'))
+                if self.extract_images:
+                    image = self.extract_image(document, ref_block_id)
+                    image_name = f"{ref_block_id.to_path()}.{settings.OUTPUT_IMAGE_FORMAT.lower()}"
+                    images[image_name] = image
+                    ref.replace_with(BeautifulSoup(f"<p><img src='{image_name}'></p>", 'html.parser'))
+                else:
+                    ref.replace_with('')
             elif ref_block_id.block_type in self.page_blocks:
                 images.update(sub_images)
                 if self.paginate_output:
