@@ -20,14 +20,14 @@ dependencies = [
     "rapidfuzz>=3.8.1",
     "filetype>=1.2.0",
     "regex>=2024.4.28",
-    "tabled-pdf>=0.1.4",
+    "tabled-pdf>=0.2.0",
     "loguru>=0.7.2",
     "pdftext>=0.3.19",
-    "surya-ocr",
     "texify>=0.2.1",
     "pikepdf>=9.4.0",
     "google-re2>=1.1.20240702",
     "markdownify>=0.13.1",
+    "surya-ocr",
 ]
 
 [project.scripts]
@@ -98,4 +98,4 @@ reportUnknownMemberType = "none"
 reportUnnecessaryTypeIgnoreComment = "warning"
 
 [tool.uv.sources]
-surya-ocr = { git = "https://github.com/village-dev/surya.git" }
+surya-ocr = { git = "https://github.com/village-dev/surya" }
