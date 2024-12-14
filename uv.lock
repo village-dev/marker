@@ -3337,7 +3337,7 @@ wheels = [
 [[package]]
 name = "surya-ocr"
 version = "0.8.0"
-source = { git = "https://github.com/village-dev/surya#841007a57fbb928afefbb40738abbf43bb769991" }
+source = { git = "https://github.com/village-dev/surya#9c888fc2f2c9b234598c9cb7961559666fd48d19" }
 dependencies = [
     { name = "ftfy" },
     { name = "loguru" },
