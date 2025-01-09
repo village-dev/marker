@@ -28,6 +28,8 @@ dependencies = [
     "google-re2>=1.1.20240702",
     "markdownify>=0.13.1",
     "surya-ocr",
+    "google-generativeai>=0.8.3",
+    "markdown2>=2.5.2",
 ]
 
 [project.scripts]
