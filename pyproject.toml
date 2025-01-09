@@ -1,6 +1,6 @@
 [project]
 name = "marker-pdf"
-version = "1.1.0"
+version = "1.2.3"
 description = "Convert PDF to markdown with high speed and accuracy."
 authors = [{ name = "Vik Paruchuri", email = "github@vikas.sh" }]
 readme = "README.md"
@@ -22,7 +22,7 @@ dependencies = [
     "regex>=2024.4.28",
     "tabled-pdf>=0.2.0",
     "loguru>=0.7.2",
-    "pdftext>=0.3.19",
+    "pdftext>=0.4.1",
     "texify>=0.2.1",
     "pikepdf>=9.4.0",
     "google-re2>=1.1.20240702",

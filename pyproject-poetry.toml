@@ -1,15 +1,13 @@
 [tool.poetry]
 name = "marker-pdf"
-version = "1.0.0"
+version = "1.2.3"
 description = "Convert PDF to markdown with high speed and accuracy."
 authors = ["Vik Paruchuri <github@vikas.sh>"]
 readme = "README.md"
 license = "GPL-3.0-or-later"
 repository = "https://github.com/VikParuchuri/marker"
 keywords = ["pdf", "markdown", "ocr", "nlp"]
-packages = [
-    {include = "marker"}
-]
+packages = [{ include = "marker" }]
 include = [
     "convert.py",
     "convert_single.py",
@@ -33,12 +31,14 @@ tabulate = "^0.9.0"
 ftfy = "^6.1.1"
 texify = "^0.2.1"
 rapidfuzz = "^3.8.1"
-surya-ocr = "~0.7.0"
+surya-ocr = "~0.8.3"
 regex = "^2024.4.28"
-pdftext = "^0.3.19"
-tabled-pdf = "~0.1.5"
+pdftext = "~0.4.1"
+tabled-pdf = "~0.2.0"
 markdownify = "^0.13.1"
 click = "^8.1.7"
+google-generativeai = "^0.8.3"
+markdown2 = "^2.5.2"
 
 [tool.poetry.group.dev.dependencies]
 jupyter = "^1.0.0"
@@ -48,6 +48,7 @@ fastapi = "^0.115.4"
 uvicorn = "^0.32.0"
 python-multipart = "^0.0.16"
 pytest = "^8.3.3"
+pytest-mock = "^3.14.0"
 
 [tool.poetry.scripts]
 marker = "convert:main"
