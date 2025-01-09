@@ -3587,7 +3587,7 @@ wheels = [
 [[package]]
 name = "surya-ocr"
 version = "0.8.3"
-source = { git = "https://github.com/village-dev/surya#0421ee8c7ba16d3d0dd71ce71587964aa1f6a572" }
+source = { git = "https://github.com/village-dev/surya#f61ddce0631d85b1872ecb365edebde05f881865" }
 dependencies = [
     { name = "ftfy" },
     { name = "loguru" },
@@ -3912,7 +3912,7 @@ name = "triton"
 version = "3.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "filelock", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux') or (sys_platform != 'darwin' and sys_platform != 'linux')" },
+    { name = "filelock", marker = "(python_full_version < '3.13' and platform_machine != 'aarch64' and sys_platform == 'linux') or (python_full_version < '3.13' and sys_platform != 'darwin' and sys_platform != 'linux')" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/98/29/69aa56dc0b2eb2602b553881e34243475ea2afd9699be042316842788ff5/triton-3.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:6b0dd10a925263abbe9fa37dcde67a5e9b2383fc269fdf59f5657cac38c5d1d8", size = 209460013 },

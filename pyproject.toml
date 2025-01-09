@@ -27,9 +27,9 @@ dependencies = [
     "pikepdf>=9.4.0",
     "google-re2>=1.1.20240702",
     "markdownify>=0.13.1",
-    "surya-ocr",
     "google-generativeai>=0.8.3",
     "markdown2>=2.5.2",
+    "surya-ocr",
 ]
 
 [project.scripts]
